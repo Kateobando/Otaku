@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	 Series
+{% endblock %}
+
+{% block content %}
+	<h1>{{ series.nombre }}</h1>
+	<br>
+	<p><b>Productor:</b> {{series.productor}}</p>
+	<p><b>Episodios:</b> {{series.episodios }}</p>
+	<p><b>Idioma:</b> 
+	{% for i in series.idioma.all %}
+		<span class ="btn btn.inverse">{{i.nombre }}</span>
+	{% endfor %}
+	</p>
+	<p><b>Genero:</b>
+	{% for p in series.genero.all %}
+		<span class ="btn btn.inverse">{{p.nombre}}</span>
+	{% endfor %}
+	</p>
+
+
+	<a href="/series/page/1">Mostrar la lista de series</a>
+{% endblock %}

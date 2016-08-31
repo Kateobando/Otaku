@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Lista de Series
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de series</h1>
+	<br>
+	{% if series %}
+	<table class = "table table-hover">
+		<theader>
+			<tr>
+				<th>Serie</th>   
+				<th>Manga</th>       
+				<th>Stock</th>    
+			</tr>
+		</theader>
+		{% for p in series %}
+			<tr>
+				<td>{{ p.nombre }}</td>
+				<td>{{ p.manga }}</td>
+				<td>{{ p.stock }}</td>
+				<td><a class="btn btn-inverse" href="/serie/{{p.id}}"> <li class = "icon-search"></li> Ver </a></td>	
+			</tr>
+		</body>
+		{% endfor %}
+	</table>
+
+	{% else %}
+		<h2>No existen series activos a la venta :( </h2>
+	{% endif %}
+	
+	{% if series %}
+	<div class="pagination">
+
+		<div class="pagination pagination-centered">
+			<ul>
+				<li><a href="/series/page/1" > << </a></li>
+				{% if series.has_previous %}
+				<li><a <href="/series/page/{{ series.previous_page_number }}"> Anterior </a></li>
+				{% else %}
+					<li><a href="#"> Anterior </a></li>
+				{% endif %}
+
+				{% if series.has_next %}
+					<li><a href="/series/page/{{ series.next_page_number }}"> Siguiente </a></li>
+				{% else %}
+					<li><a href="#"> Siguiente </a></li>
+				{% endif %}
+					<li><a href="/series/page/{{ series.paginator.num_pages }}"> >> </a></li>
+			</ul>
+		</div>
+	</div>
+			<br>
+			<h4>Pagina {{ series.number }} de {{ series.paginator.num_pages }}</h4>
+	{% endif %}
+
+{% endblock %}	

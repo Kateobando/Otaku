@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Inicio - Bienvenidos 
+{% endblock %}
+
+{% block content %}
+	<h3 align="center">Pagina en la que nos dedicamos al mundo de las figuras Anime</h3>
+	{% if user.get_profile.photo %}
+		<img src="/media/{{ user.get_profile.photo }}" width = "100px" heigth = "100px"/>
+	{% endif %}
+	{% if user.get_profile.telefono %}
+		<p>Numero Telefonico : {{ user.get_profile.telefono }}</p>
+	{% endif %}
+{% endblock %}
+	

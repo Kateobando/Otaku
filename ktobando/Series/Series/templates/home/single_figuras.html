@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Figura
+{% endblock %}
+{% block content %}
+	<h1>{{ figura.nombre }}</h1>
+	{% if Figuras.imagen %}
+		<img src="/media/{{ editorial.imagen }}" width ="80px" heigth ="80px">
+	{% endif %}
+	<br>
+	<p><b>Material:</b> {{ Figuras.material}} </p>
+	<p><b>Marca:</b> {{ Figuras.marca}} </p>
+	
+	{% endfor %}
+	
+	<br>
+	<a href="/series/page/1">Mostrar la lista de Categorias</a>
+{% endblock %}

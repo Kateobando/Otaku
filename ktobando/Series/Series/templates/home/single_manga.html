@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Manga
+{% endblock %}
+{% block content %}
+	<h1>{{ manga.nombre }}</h1>
+	<h1>{{ manga.paginas }}</h1>
+	<h1>{{ manga.fecha_publicacion }}</h1>
+	<h1>{{ manga.status	}}</h1>		
+	<h1>{{ manga.stock	}}</h1>			
+	<br>
+	<p><b>Manga:</b> {{ manga.manga}} </p>
+	
+	{% endfor %}
+	
+	<br>
+	<a href="/series/page/1">Mostrar la lista de Mangas</a>
+{% endblock %}
